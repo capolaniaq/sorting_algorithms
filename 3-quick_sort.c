@@ -14,9 +14,9 @@ void quick_sort(int *array, size_t size)
 	size_t i = 0, j = 0, n = size_array(array);
 	int tmp;
 
-	if (size < 2)
-		return;
 	if (array == NULL)
+		return;
+	if (size < 2)
 		return;
 	pivot = array[size - 1];
 	while (j < size)
