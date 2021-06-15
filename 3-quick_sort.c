@@ -30,14 +30,14 @@ void quick_sort(int *array, size_t size)
 				{
 					tmp = array[i], array[i] = array[j];
 					array[j] = tmp, i++;
-					print_array(array, n - 2);
+					print_array(array, n);
 				}
 				j++;
 				if (j == size)
 				{
 					tmp = array[i], array[i] = array[j - 1];
 					array[j - 1] = tmp, i++;
-					print_array(array, n - 2);
+					print_array(array, n);
 				}
 			}
 		}
