@@ -1,23 +1,45 @@
 #include "sort.h"
 
 /**
+* size_array - function to evaluated the size of array
+* @array: indicated the array to evaluated
+* @size: size of array
+*
+* Return: size of array of type size_t
+*/
+size_t size_array(int *array, const size_t size)
+{
+	size_t i = 0;
+
+	if (array == NULL)
+		return (0);
+
+	while (array[i] || i < size)
+	{
+		i++;
+	}
+
+	return (i);
+}
+
+/**
 * quick_sort - algoritm to sort, recursion
 * @array: int pointer to array for sort
 * @size: the size_t indicated the size of array
 *
 * Return: void
 */
-
 void quick_sort(int *array, size_t size)
 {
 	int pivot;
-	size_t i = 0, j = 0, n = size_array(array);
+	size_t i = 0, j = 0, n = size_array(array, size);
 	int tmp;
 
 	if (array == NULL)
 		return;
 	if (size < 2)
 		return;
+
 	pivot = array[size - 1];
 	while (j < size)
 	{
@@ -47,26 +69,4 @@ void quick_sort(int *array, size_t size)
 		quick_sort(array, size - 1);
 	else
 		quick_sort(array, size);
-}
-
-/**
-* size_array - function to evaluated the size of array
-* @array: idicated the array to evaluated
-*
-* Return: size of array of type size_t
-*/
-
-size_t size_array(int *array)
-{
-	size_t i = 0;
-
-	if (array == NULL)
-		return (0);
-
-	while (*(array + i) != '\0')
-	{
-		i++;
-	}
-
-	return (i);
 }
