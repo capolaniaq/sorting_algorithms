@@ -10,12 +10,15 @@
 
 void quick_sort(int *array, size_t size)
 {
-	int pivot = array[size - 1];
+	int pivot;
 	size_t i = 0, j = 0, n = size_array(array);
 	int tmp;
 
-	if (size == 0)
+	if (size < 2)
 		return;
+	if (array == NULL)
+		return;
+	pivot = array[size - 1];
 	while (j < size)
 	{
 		if (array[j] > pivot)
