@@ -1,4 +1,5 @@
 #include "sort.h"
+#define Getsize(array) (sizeof(array)/sizeof(array[0]))
 
 /**
 * quick_sort - algoritm to sort, recursion
@@ -11,7 +12,7 @@
 void quick_sort(int *array, size_t size)
 {
 	int pivot;
-	size_t i = 0, j = 0, n = size_array(array);
+	size_t i = 0, j = 0, n = Getsize(array);
 	int tmp;
 
 	if (array == NULL)
@@ -55,7 +56,7 @@ void quick_sort(int *array, size_t size)
 *
 * Return: size of array of type size_t
 */
-
+/*
 size_t size_array(int *array)
 {
 	size_t i = 0;
@@ -67,6 +68,6 @@ size_t size_array(int *array)
 	{
 		i++;
 	}
-
 	return (i);
 }
+*/
