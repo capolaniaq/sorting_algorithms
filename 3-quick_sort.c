@@ -1,102 +1,65 @@
 #include "sort.h"
-#define Getsize(array) (sizeof(array)/sizeof(array[0]))
 
 /**
-* size_array - function to evaluated the size of array
+* quick_sort - Algoritm to sort recursion
 * @array: indicated the array to evaluated
 * @size: size of array
 *
 * Return: size of array of type size_t
 */
-size_t size_array(int *array, const size_t size)
+void quick_sort(int *array, size_t size)
 {
-	size_t i = 0;
-
-	if (array == NULL)
-		return (0);
-
-	while (array[i] || i < size)
-	{
-		i++;
-	}
-
-	return (i);
+	if (size < 2)
+		return;
+	quick_sort_print (array, size, size);
 }
 
 /**
-* quick_sort - algoritm to sort, recursion
+* quick_sort_print - algoritm to sort, recursion
 * @array: int pointer to array for sort
-* @size: the size_t indicated the size of array
+* @location: position of the pivot type size_t
+* @size: indicated a size of the array
 *
 * Return: void
 */
-void quick_sort(int *array, size_t size)
+void quick_sort_print(int *array, size_t location, size_t size)
 {
 	int pivot;
-<<<<<<< HEAD
-	size_t i = 0, j = 0, n = Getsize(array);
-=======
-	size_t i = 0, j = 0, n = size_array(array, size);
->>>>>>> 8acfdd816f5e9bcff3dff0f05aaad1ee11bd0eb2
+	size_t i = 0, j = 0;
 	int tmp;
 
 	if (array == NULL)
 		return;
-	if (size < 2)
+	if (location < 2)
 		return;
 
-	pivot = array[size - 1];
-	while (j < size)
+	pivot = array[location - 1];
+	while (j < location)
 	{
 		if (array[j] > pivot)
 		{
 			i = j;
-			while (j < size)
+			while (j < location)
 			{
 				if (array[j] < pivot)
 				{
 					tmp = array[i], array[i] = array[j];
 					array[j] = tmp, i++;
-					print_array(array, n);
+					print_array(array, size);
 				}
 				j++;
-				if (j == size)
+				if (j == location)
 				{
 					tmp = array[i], array[i] = array[j - 1];
 					array[j - 1] = tmp, i++;
-					print_array(array, n);
+					print_array(array, size);
 				}
 			}
 		}
 		j++;
 	}
 	if (i == 0)
-		quick_sort(array, size - 1);
+		quick_sort_print(array, location - 1, size);
 	else
-		quick_sort(array, size);
+		quick_sort_print(array, location, size);
 }
-<<<<<<< HEAD
-
-/**
-* size_array - function to evaluated the size of array
-* @array: idicated the array to evaluated
-*
-* Return: size of array of type size_t
-*/
-/*
-size_t size_array(int *array)
-{
-	size_t i = 0;
-
-	if (array == NULL)
-		return (0);
-
-	while (*(array + i) != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-*/
-=======
->>>>>>> 8acfdd816f5e9bcff3dff0f05aaad1ee11bd0eb2
