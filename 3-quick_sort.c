@@ -26,18 +26,18 @@ void quick_sort(int *array, size_t size)
 			i = j;
 			while (j < size)
 			{
-				if (array[j]  < pivot)
+				if (array[j] < pivot)
 				{
 					tmp = array[i], array[i] = array[j];
 					array[j] = tmp, i++;
-					print_array(array, n);
+					print_array(array, n - 2);
 				}
 				j++;
 				if (j == size)
 				{
 					tmp = array[i], array[i] = array[j - 1];
 					array[j - 1] = tmp, i++;
-					print_array(array, n);
+					print_array(array, n - 2);
 				}
 			}
 		}
