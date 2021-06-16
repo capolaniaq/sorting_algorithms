@@ -25,6 +25,9 @@ void shell_sort(int *array, size_t size)
 {
 	int n = (int)size, i, j, h = 1;
 
+	if (size < 2 || array == NULL)
+		return;
+
 	while (h < n / 3)
 		h = 3 * h + 1;
 
