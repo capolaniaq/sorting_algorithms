@@ -30,7 +30,7 @@ void quick_sort_print(int *array, size_t location, size_t size)
 
 	if (array == NULL)
 		return;
-	if (location < 2)
+	if (location == 0)
 		return;
 
 	pivot = array[location - 1];
@@ -58,8 +58,8 @@ void quick_sort_print(int *array, size_t location, size_t size)
 		}
 		j++;
 	}
-	if (i == 0)
+	if (i < 2)
 		quick_sort_print(array, location - 1, size);
 	else
-		quick_sort_print(array, location, size);
-}
+		quick_sort_print(array, i, size);
+	}
