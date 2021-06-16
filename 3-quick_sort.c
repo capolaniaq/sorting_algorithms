@@ -1,29 +1,31 @@
 #include "sort.h"
 
 /**
-* quick_sort - Algoritm to sort recursion
-* @array: indicated the array to evaluated
-* @size: size of array
-*
-* Return: size of array of type size_t
-*/
-void quick_sort(int *array, size_t size)
+ * swap - swap integer numbers of an array
+ * @a: The array to be sorted
+ * @b: starting index of array
+ *
+ * Return: nothing
+ */
+void swap(int *a, int *b)
 {
-	if (size < 2)
-		return;
-	quick_sort_print (array, size, size);
+	int t = *a;
+	*a = *b;
+	*b = t;
 }
 
 /**
-* quick_sort_print - algoritm to sort, recursion
-* @array: int pointer to array for sort
-* @location: position of the pivot type size_t
-* @size: indicated a size of the array
-*
-* Return: void
-*/
-void quick_sort_print(int *array, size_t location, size_t size)
+ * partition - do partition and swap elements
+ * @array: The array to be sorted
+ * @low: starting index of array
+ * @high: ending index of array
+ * @size: size of the array
+ *
+ * Return: integer pivot
+ */
+int partition(int *array, int low, int high, size_t size)
 {
+<<<<<<< HEAD
 	int pivot;
 	size_t i = 0, j = 0;
 	int tmp;
@@ -32,34 +34,70 @@ void quick_sort_print(int *array, size_t location, size_t size)
 		return;
 	if (location == 0)
 		return;
+=======
+	int i = (low - 1), j;
+>>>>>>> 11367f61b7221aaf9e348d12869564be6404af47
 
-	pivot = array[location - 1];
-	while (j < location)
+	for (j = low; j < high; j++)
 	{
-		if (array[j] > pivot)
+		if (array[j] < array[high])
 		{
-			i = j;
-			while (j < location)
+			i++;
+			if (j != i)
 			{
-				if (array[j] < pivot)
-				{
-					tmp = array[i], array[i] = array[j];
-					array[j] = tmp, i++;
-					print_array(array, size);
-				}
-				j++;
-				if (j == location)
-				{
-					tmp = array[i], array[i] = array[j - 1];
-					array[j - 1] = tmp, i++;
-					print_array(array, size);
-				}
+				swap(&array[i], &array[j]);
+				print_array(array, size);
 			}
 		}
-		j++;
 	}
+<<<<<<< HEAD
 	if (i < 2)
 		quick_sort_print(array, location - 1, size);
 	else
 		quick_sort_print(array, i, size);
 	}
+=======
+	if (array[high] < array[i + 1])
+	{
+		swap(&array[i + 1], &array[high]);
+		print_array(array, size);
+	}
+	return (i + 1);
+}
+
+/**
+ * sort - take pivots from partitions to sort
+ * @array: The array to be sorted
+ * @low: starting index of array
+ * @high: ending index of array
+ * @size: size of the array
+ *
+ * Return: nothing
+ */
+void sort(int *array, int low, int high, size_t size)
+{
+	if (low < high)
+	{
+		int pi = partition(array, low, high, size);
+
+		sort(array, low, pi - 1, size);
+		sort(array, pi + 1, high, size);
+	}
+}
+
+/**
+ * quick_sort - sort an integer array with Lomuto partition scheme
+ * @array: The array to be sorted
+ * @size: size of the array
+ *
+ * Return: nothing
+ */
+void quick_sort(int *array, size_t size)
+{
+	if (size < 2 || array == NULL)
+	{
+		return;
+	}
+	sort(array, 0, (int)size - 1, size);
+}
+>>>>>>> 11367f61b7221aaf9e348d12869564be6404af47
