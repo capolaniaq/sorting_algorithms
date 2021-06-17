@@ -25,18 +25,7 @@ void swap(int *a, int *b)
  */
 int partition(int *array, int low, int high, size_t size)
 {
-<<<<<<< HEAD
-	int pivot;
-	size_t i = 0, j = 0;
-	int tmp;
-
-	if (array == NULL)
-		return;
-	if (location == 0)
-		return;
-=======
 	int i = (low - 1), j;
->>>>>>> 11367f61b7221aaf9e348d12869564be6404af47
 
 	for (j = low; j < high; j++)
 	{
@@ -50,13 +39,6 @@ int partition(int *array, int low, int high, size_t size)
 			}
 		}
 	}
-<<<<<<< HEAD
-	if (i < 2)
-		quick_sort_print(array, location - 1, size);
-	else
-		quick_sort_print(array, i, size);
-	}
-=======
 	if (array[high] < array[i + 1])
 	{
 		swap(&array[i + 1], &array[high]);
@@ -100,4 +82,3 @@ void quick_sort(int *array, size_t size)
 	}
 	sort(array, 0, (int)size - 1, size);
 }
->>>>>>> 11367f61b7221aaf9e348d12869564be6404af47
