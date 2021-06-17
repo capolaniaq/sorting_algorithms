@@ -44,6 +44,16 @@ void quick_sort(int *array, size_t size);
 
 void quick_sort_print(int *array, size_t location, size_t size);
 
+
 void shell_sort(int *array, size_t size);
+
+
+void cocktail_sort_list(listint_t **list);
+
+
+void swap_next(listint_t **list, int index);
+
+
+void swap_prev(listint_t **list, int index);
 
 #endif /* _SORT_H_ */
