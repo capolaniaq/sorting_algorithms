@@ -46,4 +46,6 @@ void quick_sort_print(int *array, size_t location, size_t size);
 
 void shell_sort(int *array, size_t size);
 
+void counting_sort(int *array, size_t size);
+
 #endif /* _SORT_H_ */
