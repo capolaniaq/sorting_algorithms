@@ -56,4 +56,11 @@ void swap_next(listint_t **list, int index);
 
 void swap_prev(listint_t **list, int index);
 
+
+void heap_sort(int *array, size_t size);
+void swap(int *array, size_t i, size_t child, size_t total_size);
+int heapify_down(int *array, size_t size);
+void shift_down(int *array, size_t size, size_t total_size);
+int check_array(int *array, size_t total_size);
+
 #endif /* _SORT_H_ */
